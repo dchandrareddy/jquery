@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jquery-deployment
+  namespace: jquery
+spec:
+  selector:
+    matchLabels:
+      app: jquery
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: jquery
+    spec:
+      containers:
+      - name: jquery
+        image: 076592739138.dkr.ecr.ap-southeast-1.amazonaws.com/k8-static:number
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

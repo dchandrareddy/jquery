@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jquery-ingress
+  namespace: jquery
+spec:
+  rules:
+  - host: jquery.awschandra.club
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: jquery-svc
+            port: 
+              number: 80
